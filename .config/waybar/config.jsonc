@@ -37,6 +37,7 @@
 	"max-length": 50
   },
   "sway/window": {
+    "format": "{title}",
     "max-length": 40,
     "tooltip": false,
   },
