@@ -74,7 +74,7 @@
         },
         {
           "label": "󰂯",
-          "command": "blueberry"
+          "command": "GTK_THEME=Adwaita-dark blueberry"
         }
       ]
     }

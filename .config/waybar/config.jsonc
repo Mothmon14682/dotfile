@@ -1,139 +1,68 @@
 {
-  "layer": "top",
   "position": "top",
-  "height": 40,
-  "spacing": 2,
-  "exclusive": true,
-  "gtk-layer-shell": true,
-  "passthrough": false,
-  "fixed-center": true,
-  "modules-left": ["custom/background", "sway/workspaces", "sway/mode", "sway/window"],
-  "modules-center": ["clock", "clock#simpleclock"],
-  "modules-right": [
-    "cpu",
-    "memory",
-    "pulseaudio",
-    "tray",
-    "custom/notification",
-    "bluetooth",
-    "network",
-    "battery",
-    "custom/power",
-  ],
+  "modules-left": ["custom/background", "sway/workspaces"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["network", "pulseaudio", "battery", "clock", "custom/notification"],
   "custom/background": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "$(bash ~/.config/waybar/scripts/background/change.sh) &",
+    "format": "   ",
+    "on-click": "~/.config/waybar/scripts/background/change.sh",
+    "tooltip": false
   },
   "sway/workspaces": {
-    "on-click": "activate",
-    "format": "{name}",
-    "all-outputs": true,
-    "disable-scroll": false,
-    "persistent": true,
-  },
-  "sway/mode": {
-	"format": " {}",
-	"max-length": 50
+    "format": "{name}"
   },
   "sway/window": {
     "format": "{title}",
-    "max-length": 40,
-    "tooltip": false,
-  },
-  "tray": {
-    "show-passive-items": true,
-    "spacing": 10,
-  },
-  "clock#simpleclock": {
-    "tooltip": false,
-    "format": " {:%H:%M:%S}",
-    "interval": 1,
+    "max-length": 30
   },
   "clock": {
-    "format": " {:L%a, %d-%m-%Y}",
-    "calendar": {
-      "format": {
-        "days": "<span weight='normal'>{}</span>",
-        "months": "<span color='#cdd6f4'><b>{}</b></span>",
-        "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
-        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-        "weeks": "<span color='#a6e3a1'><b>W{}</b></span>",
-      },
-      "mode": "month",
-      "mode-mon-col": 1,
-      "on-scroll": 1,
-    },
+    "format": "<span foreground='#f5c2e7'>   </span>{:L%a %d-%m-%Y | %H:%M:%S}",
+    "format-alt": "<span foreground='#f5c2e7'>   </span>{:%H:%M:%S}",
     "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>",
+    "interval": 1
   },
-  "cpu": {
-    "format": " {usage}%",
-    "tooltip": true,
-    "interval": 5,
-  },
-  "memory": {
-    "format": " {used:0.1f}Gi",
-    "tooltip": false,
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "  muted",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-icons": {
-      "headphone": "",
-      "default": [" ", " ", " "],
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
     },
-    "tooltip": false,
-    "on-click": "pavucontrol",
-  },
-  "custom/sep": {
-    "format": "|",
-    "tooltip": false,
-  },
-  "bluetooth": {
-    "format": "",
-    "format-disabled": "󰂲",
-    "format-connected": " {num_connections}",
-    "tooltip": false,
-    "on-click": "blueberry",
+    "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
+    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
   },
   "network": {
-    "format-wifi": " {essid}",
+    "format-wifi": "   {essid}",
     "format-ethernet": "󰈀",
     "format-disconnected": "󰖪",
     "tooltip-format": "{ipaddr}",
-    "tooltip-format-wifi": "({signalStrength}%)  | {ipaddr}",
+    "tooltip-format-wifi": "({signalStrength}%)    | {ipaddr}",
     "tooltip-format-ethernet": "{ifname} 🖧 | {ipaddr}",
     "tooltip-format-ethernet": "{bandwidthTotalBytes}",
-    "on-click": "(bash ~/.config/waybar/scripts/network-manager/network.sh)",
-},
-  "battery": {
-    "states": {
-        "warning": 20,
-        "critical": 10
-    },
-    "format-charging": " {icon} {capacity}%",
-    "format": "{icon} {capacity}%",
-    "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}",
-    "interval": 5,
   },
-  "custom/power": {
-    "tooltip": false,
-    "on-click": "(bash ~/.config/waybar/scripts/powermenu/powermenu.sh)",
-    "format": "⏻",
+  "pulseaudio": {
+      "format": "{icon}  {volume}%",
+      "format-muted": "",
+      "format-icons": {
+          "default": ["", "", " "]
+      },
+      "on-click": "pavucontrol"
   },
   "custom/notification": {
     "escape": true,
     "exec": "swaync-client -swb",
     "exec-if": "which swaync-client",
-    "format": "{icon}",
+    "format": "{icon} Arch",
     "format-icons": {
-      "none": "󰅺",
-      "notification": "󰡟",
+      "none": "󰣇 ",
+      "notification": " ",
     },
     "on-click": "sleep 0.1 && swaync-client -t -sw",
     "return-type": "json",
     "tooltip": false,
-  },
+  }
 }
