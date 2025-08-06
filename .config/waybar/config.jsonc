@@ -2,7 +2,11 @@
   "position": "top",
   "modules-left": ["custom/background", "sway/workspaces"],
   "modules-center": ["sway/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock", "custom/notification"],
+  "modules-right": ["tray", "network", "pulseaudio", "battery", "clock", "custom/notification"],
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10,
+  },
   "custom/background": {
     "format": "   ",
     "on-click": "~/.config/waybar/scripts/background/change.sh",
@@ -16,8 +20,8 @@
     "max-length": 30
   },
   "clock": {
-    "format": "<span foreground='#f5c2e7'>   </span>{:L%a %d-%m-%Y | %H:%M:%S}",
-    "format-alt": "<span foreground='#f5c2e7'>   </span>{:%H:%M:%S}",
+    "format-alt": "<span foreground='#f5c2e7'>   </span>{:L%a %d-%m-%Y | %H:%M:%S}",
+    "format": "<span foreground='#f5c2e7'>   </span>{:%H:%M:%S}",
     "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>",
     "interval": 1
   },
@@ -33,7 +37,8 @@
     "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
     "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
     "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}"
+    "tooltip-format": "{time}",
+    "interval": 1
   },
   "network": {
     "format-wifi": "   {essid}",

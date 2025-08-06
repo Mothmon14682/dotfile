@@ -38,7 +38,6 @@ return {
 
         -- (Default) Only show the documentation popup when manually triggered
         completion = {
-            keyword_length = 3,
             documentation = { auto_show = false },
             menu = {
                 border = "single",
@@ -63,6 +62,7 @@ return {
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to opts_extend
         sources = {
+            min_keyword_length = 2,
             default = { "lsp", "path", "snippets", "buffer" },
         },
 
