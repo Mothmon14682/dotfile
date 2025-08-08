@@ -6,7 +6,7 @@ if [[ "$1" != "--child" ]]; then
 fi
 
 val_file="$HOME/.config/waybar/scripts/background/val.txt"
-path="$HOME/background/static"
+path="$HOME/background/dynamic"
 
 read -r old_pic < "$val_file"
 
@@ -20,7 +20,4 @@ echo "$pic" > "$val_file"
 killall swaybg 2>/dev/null
 killall mpvpaper 2>/dev/null
 
-#setsid swaybg -i "$pic" -m fill >/dev/null 2>&1 < /dev/null &
-swaybg -i "$pic" -m fill
-
-wal -i "$pic" -n
+env __NV_PRIME_RENDER_OFFLOAD=1 mpvpaper eDP-1 -o "--no-audio --loop" "$pic"

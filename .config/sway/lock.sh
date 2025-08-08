@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-path="${HOME}/background/"
+path="${HOME}/background/static"
 pic="$(ls $path | shuf -n 1)"
 
 swaylock \
