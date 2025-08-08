@@ -1,0 +1,3 @@
+sudo pacman -Syu sway swayidle waybar rofi qutebrowser fastfetch mpv yt-dlp fcitx5 fcitx5-configtool kitty swaync python-pywal yazi autotilling pulseaudio pulseaudio-bluetooth pavucontrol blueberry
+
+paru -Syu swayfx swaylock-effect
