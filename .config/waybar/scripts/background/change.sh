@@ -20,7 +20,6 @@ echo "$pic" > "$val_file"
 killall swaybg 2>/dev/null
 killall mpvpaper 2>/dev/null
 
-#setsid swaybg -i "$pic" -m fill >/dev/null 2>&1 < /dev/null &
-swaybg -i "$pic" -m fill
+setsid swaybg -i "$pic" -m fill >/dev/null 2>&1 < /dev/null &
 
 wal -i "$pic" -n
