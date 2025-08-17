@@ -24,9 +24,9 @@
   "text-empty": "Nothing here",
   "widgets": [
     "title",
-    "dnd",
     "notifications",
     "mpris",
+    "backlight",
     "buttons-grid"
   ],
   "widget-config": {
@@ -37,6 +37,9 @@
     },
     "dnd": {
       "text": "Do Not Disturb"
+    },
+    "backlight": {
+      "label": "󰃟"
     },
     "label": {
       "max-lines": 1,

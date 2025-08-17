@@ -147,6 +147,7 @@ input type:touchpad {
 
     #Assign Workspaces
     assign [app_id="firefox"] workspace $ws2
+    assign [app_id="librewolf"] workspace $ws2
     assign [app_id="org.qutebrowser.qutebrowser"] workspace $ws2
     assign [app_id="kitty"] workspace $ws1
     assign [class="steam"] workspace $ws3
@@ -291,5 +292,6 @@ exec --no-startup-id fcitx5 -d
 exec --no-startup-id autotiling
 exec lxqt-policykit-agent
 exec ~/.config/waybar/scripts/background/change.sh
+exec ~/.config/sway/battery.sh
 exec_always wlsunset -t 4300 -T 4301
 exec swaync

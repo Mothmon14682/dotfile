@@ -113,18 +113,10 @@ export PATH=$PATH:/usr/local/go/bin
 
 (cat ~/.cache/wal/sequences &)
 alias cfgvim="cd ~ && cd .config/nvim && nvim"
-alias fzf="fd --type f --hidden --follow --exclude .steam --exclude .local | fzf --style full --preview 'cat {}'"
-# alias fnvim='nvim $(fzf)'
+alias ls="eza --color=always --long --no-filesize --icons=always --no-user --no-time"
 export EDITOR="nvim"
 source <(fzf --zsh)
 
-function fnvim() {
-    local fzf_path=$(fzf)
-    export PATH=$PATH:/usr/bin
-    if [ -n "$fzf_path" ]; then
-        nvim $fzf_path
-    fi
-}
 
 function yaz() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
