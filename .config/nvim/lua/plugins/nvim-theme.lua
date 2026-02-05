@@ -1,14 +1,9 @@
 return {
-    "JoosepAlviste/palenightfall.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
     config = function()
-        require("palenightfall").setup({
-            color_overrides = {
-                foreground = "#ffffff"
-            }
-        })
-        vim.cmd.colorscheme("palenightfall")
+        vim.cmd.colorscheme("tokyonight")
     end
 }
