@@ -1,12 +1,7 @@
-sudo pacman -Syu sway swayidle swaybg waybar rofi qutebrowser fastfetch mpv yt-dlp fcitx5 fcitx5-configtool kitty swaync python-pywal yazi autotilling pulseaudio pulseaudio-bluetooth pavucontrol blueberryeza fzf
+sudo pacman -Syu i3 xorg-server xorg-apps xorg-init rofi fastfetch mpv yt-dlp fcitx5 fcitx5-configtool fcitx5-gtk kitty dunst python-pywal feh yazi autotilling pulseaudio pulseaudio-bluetooth pavucontrol blueberry eza fzf
 
 [intsall paru]
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
-[paru]
-paru -Syu swayfx swaylock-effect
-
-[github]
-mpvpaper
