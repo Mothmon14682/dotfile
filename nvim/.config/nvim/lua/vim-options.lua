@@ -14,4 +14,5 @@ vim.opt.foldlevelstart = 99
 vim.g.mapleader = " "
 vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":move '<-2<CR>gv=gv")
+vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>")
 
