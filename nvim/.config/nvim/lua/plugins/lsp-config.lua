@@ -9,7 +9,18 @@ return{
         "mason-org/mason-lspconfig.nvim",
         config = function ()
             require("mason-lspconfig").setup({
-                ensure_installed = { "clangd", "lua_ls" }
+                ensure_installed = { "clangd", "lua_ls" },
+                handlers = {
+                    function(server_name)
+                        require("lspconfig")[server_name].setup({})
+                    end,
+
+                    ["clangd"] = function()
+                        require("lspconfig").clangd.setup({
+                            cmd = { "clangd", "--compile-commands-dir=build" },
+                        })
+                    end,
+                }
             })
         end
     },
@@ -17,18 +28,12 @@ return{
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
         config = function()
-            local lsp_config = require('lspconfig');
-
             vim.diagnostic.config({
                 virtual_text = true,
                 signs = true,
                 underline = true,
                 update_in_insert = true,
             })
-
-            lsp_config.clangd.setup{
-                cmd = { "clangd", "--compile-commands-dir=build" },
-            }
 
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('UserLspConfig', {}),
