@@ -1,7 +1,7 @@
 {
   "position": "top",
-  "modules-left": ["custom/background", "sway/workspaces"],
-  "modules-center": ["sway/window"],
+  "modules-left": ["custom/background", "niri/workspaces"],
+  "modules-center": ["niri/window"],
   "modules-right": ["tray", "network", "pulseaudio", "battery", "clock", "custom/notification"],
   "tray": {
     "show-passive-items": true,
