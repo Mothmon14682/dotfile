@@ -18,7 +18,14 @@ done
 echo "$pic" > "$val_file"
 
 killall swaybg 2>/dev/null
+killall feh 2>/dev/null
 killall mpvpaper 2>/dev/null
 
-feh --bg-fill "$pic"
-wal -i "$pic"
+is_wayland=$(echo $WAYLAND_DISPLAY)
+if [[ -z "$is_wayland"  ]]; then
+    feh --bg-fill "$pic"
+else
+    swaybg -i "$pic" -m fill & disown
+fi
+
+wal -i "$pic" -n
