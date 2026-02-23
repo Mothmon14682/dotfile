@@ -1,74 +1,97 @@
 {
+  "layer": "top",
   "position": "top",
-  "modules-left": ["custom/background", "niri/workspaces"],
-  "modules-center": ["niri/window"],
-  "modules-right": ["tray", "network", "pulseaudio", "battery", "clock", "custom/notification"],
-  "tray": {
-    "show-passive-items": true,
-    "spacing": 10,
-  },
-  "custom/background": {
-    "format": "   ",
-    "on-click": "~/.config/waybar/scripts/background/change.sh",
-    "on-click-right": "~/.config/waybar/scripts/background/live_wall.sh",
-    "tooltip": false
-  },
-  "sway/workspaces": {
-    "format": "{name}"
-  },
-  "sway/window": {
-    "format": "{title}",
-    "max-length": 30
-  },
-  "clock": {
-    "format-alt": "<span foreground='#f5c2e7'>   </span>{:L%a %d-%m-%Y | %H:%M:%S}",
-    "format": "<span foreground='#f5c2e7'>   </span>{:%H:%M:%S}",
-    "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>",
-    "interval": 1
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
-    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
-    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
-    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
-    "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}",
-    "interval": 1
-  },
-  "network": {
-    "format-wifi": "   {essid}",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰖪",
-    "tooltip-format": "{ipaddr}",
-    "tooltip-format-wifi": "({signalStrength}%)    | {ipaddr}",
-    "tooltip-format-ethernet": "{ifname} 🖧 | {ipaddr}",
-    "tooltip-format-ethernet": "{bandwidthTotalBytes}",
-  },
-  "pulseaudio": {
-      "format": "{icon}  {volume}%",
-      "format-muted": "",
-      "format-icons": {
-          "default": ["", "", " "]
-      },
-      "on-click": "pavucontrol"
-  },
-  "custom/notification": {
-    "escape": true,
-    "exec": "swaync-client -swb",
-    "exec-if": "which swaync-client",
-    "format": "{icon} Arch",
+  "spacing": 0,
+  "modules-left": ["niri/workspaces", "custom/uptime"],
+
+  "modules-center": ["clock"],
+
+  "modules-right": [
+    "tray",
+    "network",
+    "pulseaudio",
+    "bluetooth",
+    "battery",
+  ],
+
+  "niri/workspaces": {
+    "format": "{icon}",
     "format-icons": {
-      "none": "󰣇 ",
-      "notification": " ",
+      "active": "",
+      "default": "",
     },
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "return-type": "json",
+  },
+
+  "tray": {
+      "show-passive-items": true,
+      "spacing": 10,
+  },
+
+  "bluetooth": {
+    "format": "󰂲",
+    "format-on": "{icon}",
+    "format-off": "{icon}",
+    "format-connected": "{icon}",
+    "format-icons": {
+      "on": "󰂯",
+      "off": "󰂲",
+      "connected": "󰂱",
+    },
+    "on-click": "blueberry",
+    "tooltip-format-connected": "{device_enumerate}",
+  },
+
+  "clock": {
+    "timezone": "Asia/Ho_Chi_Minh",
     "tooltip": false,
+    "format": "{:%H:%M:%S  -  %A, %d %B %Y }",
+    "interval": 1,
+  },
+
+  "network": {
+    "format-wifi": "󰤢",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰤠 ",
+    "interval": 5,
+    "tooltip-format": "{essid} ({signalStrength}%)",
+    "on-click": "~/.config/scripts/net_menu.sh",
+  },
+
+  "custom/uptime": {
+    "format": "{}",
+    "format-icon": [""],
+    "tooltip": false,
+    "interval": 1600,
+    "exec": "$HOME/.config/scripts/uptime.sh",
+  },
+
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": ["", "󰃜", "󰃛", "󰃞", "󰃝", "󰃟", "󰃠"],
+    "tooltip": false,
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "],
+    },
+    "on-click": "pavucontrol",
+  },
+
+  "battery": {
+    "interval": 2,
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon}  {capacity}%",
+    "format-full": "{icon}  {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", ""],
   }
 }

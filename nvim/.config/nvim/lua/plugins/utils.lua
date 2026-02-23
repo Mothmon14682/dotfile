@@ -17,4 +17,9 @@ return {
         end
     },
     { "nvim-tree/nvim-web-devicons", lazy = true },
+    { "brenoprata10/nvim-highlight-colors",
+      config = function ()
+          require('nvim-highlight-colors').setup({})
+      end
+    },
 }
