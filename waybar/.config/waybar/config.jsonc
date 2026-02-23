@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "modules-left": ["niri/workspaces", "custom/uptime"],
+  "modules-left": ["custom/logo", "niri/workspaces", "custom/uptime"],
 
   "modules-center": ["clock"],
 
@@ -13,6 +13,13 @@
     "bluetooth",
     "battery",
   ],
+
+  "custom/logo": {
+    "format": " 󰣇 ",
+    "on-click": "~/.config/scripts/background.sh",
+    "on-click-right": "~/.config/scripts/live_wall.sh",
+    "tooltip": false
+  },
 
   "niri/workspaces": {
     "format": "{icon}",

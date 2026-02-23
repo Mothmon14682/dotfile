@@ -18,6 +18,7 @@
 }
 
 /* --- Left Modules (Individual, Fully Rounded Blocks - With Horizontal Spacing & Simple Hover) --- */
+#custom-logo,
 #workspaces,
 #custom-uptime,
 #cpu,
@@ -34,9 +35,14 @@
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+#custom-logo {
+  padding: 2px 4px 2px 2px ;
+  margin-left: 8px; /* Margin from the far left edge */
+  margin-right: 5px; /* Spacing after the workspaces module */
+}
+
 #workspaces {
   padding: 2px ;
-  margin-left: 8px; /* Margin from the far left edge */
   margin-right: 5px; /* Spacing after the workspaces module */
 }
 
@@ -54,7 +60,7 @@
 #workspaces button {
   color: #babbf1;
   border-radius: 5px; /* Workspaces buttons are always rounded */
-  padding: 0.3rem 0.6rem;
+  padding: 0.3rem 0.9rem 0.3rem 0.6rem;
   background: transparent;
   transition: all 0.2s ease-in-out;
   border: none;
