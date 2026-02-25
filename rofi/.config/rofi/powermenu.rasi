@@ -1,0 +1,74 @@
+@theme "/dev/null"
+
+* {
+ background-color: #1a1b26;
+ selected-normal-background: #99d1db;
+ normal-foreground: #99d1db;
+ selected-normal-foreground: #1a1b26;
+}
+
+window {
+	border:           4;
+	padding:          8;
+    children:   [ listview ];
+    location: east;
+    width: 100px;
+    border-radius: 16px;
+    border: 2px solid;
+    border-color: #888888;
+}
+
+listview {
+    padding:      0px;
+    fixed-height: false;
+    border:       0px;
+    scrollbar: false;
+    spacing: 10px;
+}
+
+element {
+    padding: 20px;
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 50px;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    font: "JetBrainsMono Nerd Font 16";
+    font-weight: bold;
+    color: #99d1db;
+    background-color: transparent;
+}
+
+element-text normal.normal {
+    color: var(normal-foreground);
+}
+
+element-text selected.normal {
+    color: var(selected-normal-foreground);
+}
+
+alternate.normal {
+    background-color: transparent;
+    text-color: var(normal-foreground);
+}
+
+normal.normal {
+    background-color: transparent;
+    text-color: var(normal-foreground);
+}
+
+element normal {
+    background-color: var(background-color);
+    border-color: var(normal-foreground);
+}
+
+element selected.normal {
+    background-color: var(selected-normal-background);
+}
+
+selected {
+    background-color: transparent;
+    text-color:       var(selected-normal-foreground);
+}

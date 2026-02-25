@@ -12,6 +12,7 @@
     "pulseaudio",
     "bluetooth",
     "battery",
+    "custom/power"
   ],
 
   "custom/logo": {
@@ -51,7 +52,7 @@
   "clock": {
     "timezone": "Asia/Ho_Chi_Minh",
     "tooltip": false,
-    "format": "{:%H:%M:%S  -  %A, %d %B %Y }",
+    "format": "{:%A, %d %B %Y - %H:%M:%S}",
     "interval": 1,
   },
 
@@ -100,5 +101,11 @@
     "format-plugged": " {capacity}%",
     "format-alt": "{icon} {time}",
     "format-icons": ["", "", "", "", ""],
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "~/.config/scripts/powermenu.sh",
+    "tooltip": false
   }
 }

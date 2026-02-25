@@ -28,4 +28,4 @@ else
     swaybg -i "$pic" -m fill & disown
 fi
 
-wal -i "$pic" -n
+wal -i "$pic" -n -q -e --cols16 darken

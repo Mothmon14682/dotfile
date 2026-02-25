@@ -140,7 +140,8 @@
 #backlight,
 #network,
 #custom-lock,
-#battery {
+#battery,
+#custom-power {
   background-color: #1a1b26;
   padding: 0.3rem 0.7rem;
   margin: 5px 0px; 
@@ -156,7 +157,8 @@
 #backlight:hover,
 #network:hover,
 #custom-lock:hover,
-#battery:hover {
+#battery:hover,
+#custom-power:hover {
   background-color: rgb(41, 42, 53);
 }
 
@@ -166,7 +168,7 @@
   border-bottom-left-radius: 6px;
 }
 
-#battery {
+#custom-power {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   margin-right: 8px;
@@ -219,6 +221,10 @@
   color: #a6d189;
 }
 #battery.warning:not(.charging) {
+  color: #e78284;
+}
+
+#custom-power {
   color: #e78284;
 }
 
