@@ -4,7 +4,7 @@ selected=$(printf "󰐥\n󰜉\n󰒲\n󰿅" | rofi -config ~/.config/rofi/powerme
 
 case "$selected" in
     "󰐥")
-        poweroff
+        shutdown now
         ;;
     "󰜉")
         reboot

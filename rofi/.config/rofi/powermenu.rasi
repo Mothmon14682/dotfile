@@ -39,6 +39,7 @@ element-text {
     font-weight: bold;
     color: #99d1db;
     background-color: transparent;
+    border-radius: 50px;
 }
 
 element-text normal.normal {

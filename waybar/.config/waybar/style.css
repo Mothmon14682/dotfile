@@ -215,12 +215,16 @@
   color: #99d1db;
 }
 #battery {
-  color: #99d1db;;
+  color: #99d1db;
 }
 #battery.charging {
   color: #a6d189;
 }
 #battery.warning:not(.charging) {
+  color: #f0f567;
+}
+
+#battery.critical:not(.charging) {
   color: #e78284;
 }
 

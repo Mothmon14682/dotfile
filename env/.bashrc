@@ -10,4 +10,4 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 export EDITOR="nvim"
 
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
