@@ -198,10 +198,8 @@ exec_always --no-startup-id $HOME/.config/scripts/polybar_launch.sh
 exec --no-startup-id $HOME/.config/scripts/background.sh
 exec --no-startup-id dunst &
 exec --no-startup-id autotiling &
+exec --no-startup-id xinput set-prop "ELAN06FA:00 04F3:32B9 Touchpad" "libinput Tapping Enabled" 1
 
-# User define keybind
-bindsym $mod+p exec --no-startup-id xrandr --output HDMI-1 --mode 1280x720 --same-as eDP-1   
-bindsym $mod+Shift+p exec --no-startup-id xrandr --output HDMI-1 --off   
 bindsym $mod+x exec scrot -s - | xclip -selection clipboard -t image/png -i 
 
 # Window rules
