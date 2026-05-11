@@ -1,0 +1,180 @@
+configuration {
+    modes:                  [ drun, window, run ];
+    show-icons:             true;
+    icon-theme:             "Papirus";
+    display-drun:           "󰃢";
+    display-run:            "";
+    display-window:         "";
+    drun-display-format:    "{icon} {name}";
+    window-format:          "{w} · {c} · {t}";
+}
+
+@theme "/dev/null"
+
+/*****----- Global Properties -----*****/
+* {
+    font:                   "JetBrains Mono Nerd Font 12";
+    background:             #0c10169f; 
+    foreground:             #f2f3f7;
+
+    urgent-foreground:      #e67d90; 
+    active-foreground:      #87CEEB;
+    element-background:     #c8cdda;
+    mode-selected:          #29628f;
+}
+
+/*****----- Main Window -----*****/
+window {
+    location:               center;
+    anchor:                 center;
+    fullscreen:             false;
+    width:                  35%;
+    x-offset:               0px;
+    y-offset:               0px;
+
+    enable:                 true;
+    // border-radius:          20px;
+    border:                 3px;
+    border-color:           #29628f;
+    background-color:       @background;
+    cursor:                 default;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enable:                 true; 
+    space:                  0px;
+    background-color:       transparent;
+    children:               [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                true;
+    spacing:                10px;
+    padding:                80px 20px 80px 20px;
+    background-color:       transparent;
+    background-image:       url("~/.config/rofi/themes/kaf.jpg", width);
+    text-color:             @foreground;
+    orientation:            horizontal;
+    children:               [ "textbox-prompt-colon", "entry", "mode-switcher" ];
+}
+
+textbox-prompt-colon {
+    enabled:                true;
+    expand:                 false;
+    str:                    "";
+    padding:                12px 20px 12px 15px;
+    border-radius:          100%;
+    background-color:       @background;
+    text-color:             inherit;
+}
+
+entry {
+    enabled:                true;
+    expand:                 true;
+    padding:                12px 16px;
+    border-radius:          100%;
+    background-color:       @background;
+    text-color:             inherit;
+    cursor:                 text;
+    placeholder:            "What can i find for you, Master?";
+    placeholder-color:      inherit;
+}
+
+space {
+    expand:                 false;
+    background-color:       transparent;
+    width:                  20px;
+}
+
+/*****----- Mode Switcher -----*****/
+mode-switcher{
+    enabled:                true;
+    spacing:                10px;
+    background-color:       transparent;
+    text-color:             @foreground;
+}
+
+button {
+    width:                  45px;
+    padding:                12px 14px 12px 10px;
+    border-radius:          100%;
+    background-color:       @background;
+    text-color:             inherit;
+    cursor:                 pointer;
+}
+
+button selected {
+    background-color:       @mode-selected;
+    text-color:             @foreground;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                true;
+    columns:                1;
+    lines:                  7;
+    cycle:                  true;
+    dynamic:                true;
+    scrollbar:              false;
+    layout:                 vertical;
+    reverse:                false;
+    padding:                5px 5px;
+
+    spacing:                10px;
+    background-color:       transparent;
+    text-color:             @foreground;
+    cursor:                 default;
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                true;
+    spacing:                10px;
+    padding:                4px 20px;
+    border-radius:          100%;
+    background-color:       transparent;
+    text-color:             @foreground;
+    cursor:                 pointer;
+}
+
+element normal {
+    background-color:       inherit;
+    text-color:             inherit;
+}
+
+element active {
+    background-color:       inherit;
+    text-color:             @active-foreground;
+}
+
+element urgent {
+    background-color:       inherit;
+    text-color:             @urgent-foreground;
+}
+
+element-icon {
+    background-color:       transparent;
+    text-color:             inherit;
+    size:                   32px;
+    cursor:                 inherit;
+}
+
+element selected.normal, selected.urgent {
+    background-color:       @element-background;
+    text-color:             @background;
+}
+
+element selected.active {
+    background-color:       @active-foreground;
+    text-color:             @background;
+}
+
+element-text {
+    background-color:       transparent;
+    text-color:             inherit;
+    cursor:                 inherit;
+    vertical-align:         0.5;
+    horizontal-align:       0.0;
+}

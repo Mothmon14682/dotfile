@@ -204,6 +204,6 @@ bindsym $mod+x exec scrot -s - | xclip -selection clipboard -t image/png -i
 
 # Window rules
 for_window [class="kitty"] move container to workspace number $ws1
-for_window [class="firefox"] move container to workspace number $ws2
+for_window [class="Firefox"] move container to workspace number $ws2
 for_window [class="pavucontrol"] floating enable
 for_window [class="Blueberry.py"] floating enable
