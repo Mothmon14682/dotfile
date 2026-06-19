@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on = "<C-w>" 
+run = 'shell --block "wal -i %h -n -e"'
+desc = "Run pywal on hovered image"

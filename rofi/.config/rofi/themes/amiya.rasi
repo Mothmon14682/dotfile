@@ -14,8 +14,9 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                   "JetBrains Mono Nerd Font 12";
-    background:             #0c10169f; 
-    foreground:             #f2f3f7;
+
+    background:             #0c101680; 
+    foreground:             #ffffff;
 
     urgent-foreground:      #e67d90; 
     active-foreground:      #87CEEB;
@@ -52,9 +53,9 @@ mainbox {
 inputbar {
     enabled:                true;
     spacing:                10px;
-    padding:                80px 20px 80px 20px;
+    padding:                100px 20px 100px 20px;
     background-color:       transparent;
-    background-image:       url("~/.config/rofi/themes/kaf.jpg", width);
+    background-image:       url("~/.config/rofi/themes/amiya.jpg", width);
     text-color:             @foreground;
     orientation:            horizontal;
     children:               [ "textbox-prompt-colon", "entry", "mode-switcher" ];
@@ -78,7 +79,7 @@ entry {
     background-color:       @background;
     text-color:             inherit;
     cursor:                 text;
-    placeholder:            "What can i find for you, Master?";
+    placeholder:            "Dokutah, welcome home!";
     placeholder-color:      inherit;
 }
 

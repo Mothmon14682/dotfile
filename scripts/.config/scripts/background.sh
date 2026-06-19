@@ -30,7 +30,12 @@
 # 
 # wal -i "$pic" -n -q -e
 
-pic=$(cat ~/.cache/wal/wal)
+if [ -f "$HOME/.fehbg" ]; then
+    $HOME/.fehbg
+else
+    pic=$(cat ~/.cache/wal/wal)
 
-feh --bg-fill "$pic"
-wal -i "$pic" -n -q -e
+    feh --bg-fill "$pic"
+    wal -i "$pic" -n -q -e
+fi
+

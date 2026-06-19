@@ -201,6 +201,7 @@ exec --no-startup-id autotiling &
 exec --no-startup-id xinput set-prop "ELAN06FA:00 04F3:32B9 Touchpad" "libinput Tapping Enabled" 1
 
 bindsym $mod+x exec scrot -s - | xclip -selection clipboard -t image/png -i 
+bindsym Print exec scrot -e 'xclip -selection clipboard -t image/png -i $f && notify-send "Screenshot copied"'
 
 # Window rules
 for_window [class="kitty"] move container to workspace number $ws1
