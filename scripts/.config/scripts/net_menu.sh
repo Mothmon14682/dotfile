@@ -43,7 +43,13 @@ while true; do
     nmcli device wifi rescan
 
     connected=$(nmcli -t -f NAME connection show)
-    selection=$(nmcli -t -f SECURITY,SSID device wifi list | sort -u | awk -F: '$2 != ""' | sed -E 's/^[^:]+:/ /' | sed -E 's/^:/ /' | rofi_selection 'SSID:')
+    selection=$(nmcli -t -f SECURITY,SSID,SIGNAL device wifi list | 
+                sort -t: -k3 -nr | 
+                awk -F: '$2 != "" { print $1 ":" $2 }' |
+                awk -F: '!seen[$2]++' |
+                sed -E 's/^[^:]+:/ /' | 
+                sed -E 's/^:/ /' | 
+                rofi_selection 'SSID:')
 
     if [[ -z "$selection" ]]; then
         exit 0
