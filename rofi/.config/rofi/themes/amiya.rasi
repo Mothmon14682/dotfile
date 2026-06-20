@@ -1,22 +1,21 @@
 configuration {
-    modes:                  [ drun, window, run ];
+    modes:                  [ drun ];
     show-icons:             true;
     icon-theme:             "Papirus";
-    display-drun:           "󰃢";
-    display-run:            "";
-    display-window:         "";
     drun-display-format:    "{icon} {name}";
-    window-format:          "{w} · {c} · {t}";
 }
-
-@theme "/dev/null"
 
 /*****----- Global Properties -----*****/
 * {
     font:                   "JetBrains Mono Nerd Font 12";
 
-    background:             #0c101680; 
-    foreground:             #ffffff;
+    blue:                   #6cc5e0;
+    black-grey:             #252728;
+    white-grey:             #f3f3f5;
+    smoke-grey:             #9ca5b0;
+
+    background:             @white-grey; 
+    foreground:             @black-grey;
 
     urgent-foreground:      #e67d90; 
     active-foreground:      #87CEEB;
@@ -29,14 +28,14 @@ window {
     location:               center;
     anchor:                 center;
     fullscreen:             false;
-    width:                  35%;
+    width:                  32%;
     x-offset:               0px;
     y-offset:               0px;
 
     enable:                 true;
     // border-radius:          20px;
     border:                 3px;
-    border-color:           #29628f;
+    border-color:           @black-grey;
     background-color:       @background;
     cursor:                 default;
 }
@@ -53,77 +52,49 @@ mainbox {
 inputbar {
     enabled:                true;
     spacing:                10px;
-    padding:                100px 20px 100px 20px;
+    padding:                10px;
     background-color:       transparent;
-    background-image:       url("~/.config/rofi/themes/amiya.jpg", width);
-    text-color:             @foreground;
+    text-color:             @white-grey;
     orientation:            horizontal;
-    children:               [ "textbox-prompt-colon", "entry", "mode-switcher" ];
+    children:               [ "textbox-prompt-colon", "entry" ];
 }
 
 textbox-prompt-colon {
     enabled:                true;
     expand:                 false;
     str:                    "";
-    padding:                12px 20px 12px 15px;
-    border-radius:          100%;
-    background-color:       @background;
+    padding:                10px 18px 10px 14px;
+    border-radius:          10px;
+    background-color:       @smoke-grey;
     text-color:             inherit;
 }
 
 entry {
     enabled:                true;
     expand:                 true;
-    padding:                12px 16px;
-    border-radius:          100%;
-    background-color:       @background;
+    padding:                10px 14px;
+    border-radius:          10px;
+    background-color:       @smoke-grey;
     text-color:             inherit;
     cursor:                 text;
-    placeholder:            "Dokutah, welcome home!";
+    placeholder:            "Amiya, Search for me...";
     placeholder-color:      inherit;
-}
-
-space {
-    expand:                 false;
-    background-color:       transparent;
-    width:                  20px;
-}
-
-/*****----- Mode Switcher -----*****/
-mode-switcher{
-    enabled:                true;
-    spacing:                10px;
-    background-color:       transparent;
-    text-color:             @foreground;
-}
-
-button {
-    width:                  45px;
-    padding:                12px 14px 12px 10px;
-    border-radius:          100%;
-    background-color:       @background;
-    text-color:             inherit;
-    cursor:                 pointer;
-}
-
-button selected {
-    background-color:       @mode-selected;
-    text-color:             @foreground;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                true;
     columns:                1;
-    lines:                  7;
+    lines:                  6;
     cycle:                  true;
     dynamic:                true;
     scrollbar:              false;
     layout:                 vertical;
     reverse:                false;
     padding:                5px 5px;
+    margin:                 0px 5px 5px 5px;
 
-    spacing:                10px;
+    spacing:                8px;
     background-color:       transparent;
     text-color:             @foreground;
     cursor:                 default;
@@ -132,9 +103,9 @@ listview {
 /*****----- Elements -----*****/
 element {
     enabled:                true;
-    spacing:                10px;
-    padding:                4px 20px;
-    border-radius:          100%;
+    spacing:                5px;
+    padding:                5px 10px;
+    border-radius:          10px;
     background-color:       transparent;
     text-color:             @foreground;
     cursor:                 pointer;
@@ -145,26 +116,16 @@ element normal {
     text-color:             inherit;
 }
 
-element active {
-    background-color:       inherit;
-    text-color:             @active-foreground;
-}
-
-element urgent {
-    background-color:       inherit;
-    text-color:             @urgent-foreground;
-}
-
 element-icon {
     background-color:       transparent;
     text-color:             inherit;
-    size:                   32px;
+    size:                   28px;
     cursor:                 inherit;
 }
 
 element selected.normal, selected.urgent {
-    background-color:       @element-background;
-    text-color:             @background;
+    background-color:       @blue;
+    text-color:             @foreground;
 }
 
 element selected.active {
