@@ -41,7 +41,7 @@
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
     # offset = 10x50
-    offset = (6, 48)
+    offset = (0, 40)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -339,21 +339,21 @@
 
 
 [urgency_low]
-    background = "#181825"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
-    frame_color = "#33b8ff"
+    background = "#e1e1e5"
+    foreground = "#252728"
+    highlight = "#252728"
+    frame_color = "#252728"
     timeout = 5
 
 [urgency_normal]
-    background = "#181825"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
-    frame_color = "#ffffff"
+    background = "#e1e1e5"
+    foreground = "#252728"
+    highlight = "#252728"
+    frame_color = "#6cc5e0"
     timeout = 5
 
 [urgency_critical]
-    background = "#181825"
+    background = "#b44967"
     foreground = "#CDD6F4"
     frame_color = "#f38ba8"
     timeout = 0
