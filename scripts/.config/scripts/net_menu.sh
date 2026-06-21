@@ -7,7 +7,7 @@ rofi_selection() {
                             }
                             
                             entry {
-                                placeholder: 'Amiya, find me this wifi...';
+                                placeholder: '$2';
                             }
                            "
 }
@@ -39,7 +39,7 @@ check_and_notify() {
     fi
 }
 
-while true; do
+wifi_connect() {
     nmcli device wifi rescan
 
     connected=$(nmcli -t -f NAME connection show)
@@ -49,10 +49,10 @@ while true; do
                 awk -F: '!seen[$2]++' |
                 sed -E 's/^[^:]+:/ /' | 
                 sed -E 's/^:/ /' | 
-                rofi_selection 'SSID:')
+                rofi_selection 'SSID:' 'Amiya, connect to this wifi...')
 
     if [[ -z "$selection" ]]; then
-        exit 0
+        return 0
     fi
 
     if [[ "$selection" == *""* ]]; then
@@ -83,4 +83,34 @@ while true; do
         status=$?
         check_and_notify $status "Successfully connected to $ssid" "Failed to connect to $ssid"
     fi
+}
+
+wifi_forget() {
+    ssid=$(nmcli -t -f NAME,TYPE connection show | awk -F: '$2 == "802-11-wireless" { print $1 }' | rofi_selection "Forget:" "Don't forget me...")
+
+    if [[ -z "$ssid" ]]; then
+        return 0
+    fi
+
+    nmcli connection delete "$ssid"
+    status=$?
+    check_and_notify $status "Forgot the wifi name $ssid" "Wifi to strong to forget"
+}
+
+wifi_action() {
+    selection=$(printf "󱛅 Forgot Wifi\n󱚽 Connect Wifi" | rofi_selection "Action:" "Where is Amiya?")
+    
+    if [[ -z $selection ]]; then
+        exit 0
+    fi
+
+    if [[ "$selection" =~ "󱛅" ]]; then
+        wifi_forget
+    elif [[ "$selection" =~ "󱚽" ]]; then
+        wifi_connect
+    fi
+}
+
+while true; do
+    wifi_action
 done
